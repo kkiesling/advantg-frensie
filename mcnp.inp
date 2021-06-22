@@ -1,0 +1,46 @@
+Corresponding MCNP input for the FRENSIE file
+C
+C Cell cards - RPP combos
+C cell # | mat # | density | surf combos
+08          4      -11.35     -8
+09          4      -11.35     -9
+11          4      -11.35     -11
+12          3      -1.0       -12 +4 +5
+04          1      -7.26      -4
+05          2      -5.5       -5
+C void
+100         0                  +100
+
+C Surfaces (all RPPs)
+08 RPP -25 -17    -25  25   -25 25
+09 RPP  17  25    -25  25   -25 25
+11 RPP  -2   2   -7.5 7.5   -25 25
+12 RPP -17  17    -25  25   -25 25
+04 RPP -17 -15     -1   1    -1  1
+05 RPP  15  17     -1   1    -1  1
+100 RPP -25 25  -25 25  -25 25
+
+C Materials 1=Mn, 2=Ge, 3=H, 4=Pb
+M1  25000  1
+M2  32000  1
+M3   1000  1
+M4  82000  1
+C cell importances
+IMP:p 1 1 1 1 1 1 0
+C
+C Source Def
+MODE P
+NPS 100
+C cell 4 contains mono energetic source (photons)
+SDEF ERG=0.835  X=D1 Y=D2 Z=D3
+SI1 -17. 4i -15
+SP1 0 1 4R
+SI2 -1. 4i 1.
+SP2 0 1 4R
+SI3 -1. 4i 1.
+SP3 0 1 4R
+C
+C Tallies
+F4:p 5
+E4  4.5000E-02 1.0000E-01 2.0000E-01 3.0000E-01 4.0000E-01
+               6.0000E-01 8.0000E-01 1.0000E+00
