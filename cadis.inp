@@ -2,7 +2,7 @@ method                        cadis
 anisn_library                 27n19g
 anisn_upscatter               false
 
-mcnp_input                    mcnp.inp
+mcnp_input                    ../mcnp.inp
 mcnp_tallies                  4
 
 denovo_x_blocks               1
